@@ -1,0 +1,68 @@
+PROGRAM names
+
+{  Copyright(C) 2020    MEJT
+ 
+   Generates random names and stores them in an array.
+ 
+   Depending on size of the array it may be necessary to increase the  heap
+   size. 
+
+   On VAX/VMS compile using:
+  
+   $ algol names /heap=10000000
+   $ link names
+   $ run names
+ 
+   This  program is free software: you can redistribute it and/or modify it
+   under  the  terms of the GNU General Public License as published by  the
+   Free  Software Foundation, either version 3 of the License, or (at  your
+   option) any later version.
+ 
+   This  program  is  distributed in the hope that it will be  useful,  but
+   WITHOUT   ANY   WARRANTY;  without  even   the   implied   warranty   of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+   Public License for more details.
+ 
+   You  should have received a copy of the GNU General Public License along
+   with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+   08 Feb 20 0.1  001 - Initial version - MEJT
+   10 Feb 20      002 - Generates names before printing anything - MEJT
+ 
+   To Do:             - Use normally distributed random numbers to control
+                        how many times names occour in the list.
+}
+
+BEGIN
+ 
+   INT limit = 175000; { Max 200000 - if not printed }
+
+   [] STRING first = ("Michael", "Lisa", "John", "Mary", 
+                      "David", "Susan", "James", "Karen", 
+                      "Robert", "Linda", "Mark", "Particia", 
+                      "William", "Deborah", "Richard", "Elizabeth");
+
+   [] STRING last =  ("SMITH", "JONES", "TAYLOR", "BROWN", 
+                      "WILLIAMS", "WILSON", "JOHNSON", "DAVIES", 
+                      "ROBINSON", "WRIGHT", "THOMPSON", "EVANS", 
+                      "WALKER", "WHITE", "ROBERTS", "GREEN");
+ 
+   [limit] STRING names;
+ 
+  { Generate random names. }
+ 
+   FOR count TO limit DO
+      names[count] := first[(ENTIER (random * 16) + 1)] 
+         + " " + last[(ENTIER(random * 16) + 1)]
+   OD;
+ 
+   { Print the list of names. }
+ 
+   FOR count TO limit DO
+      printf(($x5zd$, count, $xg$, names[count]));
+      IF count < limit THEN print(newline) FI
+   OD
+ 
+END
+ 
+FINISH.
