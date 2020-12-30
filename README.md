@@ -1,4 +1,4 @@
-## alg-names - An array of strings.
+## alg-names - Arrays of strings.
 
 Written in Algol 68. 
 
