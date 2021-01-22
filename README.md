@@ -17,12 +17,13 @@ On VAX/VMS compile and run using:
           4 Elizabeth WHITE
           5 Susan JONES
           6 Particia WILLIAMS
-          7 Michael JOHNSON
-          8 William THOMPSON
-          9 David WRIGHT
-         10 Karen WALKER
-         11 Karen JONES
-         12 Linda SMITH
             :
             :
             :
+     174995 James GREEN
+     174996 John WALKER
+     174997 Elizabeth WILSON
+     174998 Elizabeth EVANS
+     174999 John ROBINSON
+     175000 Karen JONES
+    $
